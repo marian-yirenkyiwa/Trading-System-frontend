@@ -1,35 +1,55 @@
 import { Component, OnInit } from '@angular/core';
-import {AbstractControl, FormBuilder, Validators} from "@angular/forms";
+import {AbstractControl, FormBuilder, Validators, FormGroup, FormControl} from "@angular/forms";
+import { of } from 'rxjs';
+import { OrderService } from 'src/app/services/order.service';
+import { Ordermodel } from './ordermodel';
 
 @Component({
-  selector: 'app-create-order',
+  selector: 'create-order',
   templateUrl: './create-order.component.html',
   styleUrls: ['./create-order.component.scss']
 })
 export class CreateOrderComponent implements OnInit{
+  
 
-  loginForm = this.formBuilder.group({
-    email: ['', [Validators.email, Validators.required]],
-    password: ['', [Validators.required]]
+  orderForm = new FormGroup({
+    product: new FormControl(['', [Validators.minLength, Validators.required]]),
+    quantity: new FormControl(['', [Validators.min(1),Validators.required]]),
+    orderside: new FormControl(['', [Validators.required]]),
+    ordertype: new FormControl(['', [Validators.required]]),
+    price: new FormControl(['', [Validators.min(1),Validators.required]])
   })
- 
 
-  constructor(private formBuilder: FormBuilder){}
-  
-  
+  constructor(private formBuilder: FormBuilder, private orderService: OrderService){}
   ngOnInit(): void {
-    // throw new Error('Method not implemented.');
+    //throw new Error('Method not implemented.');
   }
 
-  onSubmit() {
-    if (this.loginForm.invalid) {
-      return;
-    }
-    console.info("Form Valid!")
+payload: Ordermodel;
+  onSubmit(payload: Ordermodel ) {
+    console.log(payload)
+    this.orderService.getNewOrder(payload)
+    .subscribe(
+      data=> console.log("Success!", data),
+      // error => console.error("!Error", error)
+    )
+
   }
 
   get controls(): { [p: string]: AbstractControl } {
-    return this.loginForm.controls;
+    return this.orderForm.controls;
   }
+
+  selectedValue: string;
+
+  ordertypes: any [] = [
+    {value: 'MARKET', viewValue: 'MARKET'},
+    {value: 'LIMIT', viewValue: 'LIMIT'}
+  ];
+
+  ordersides: any [] = [
+    {value: 'SELL', viewValue: 'SELL'},
+    {value: 'BUYT', viewValue: 'BUY'}
+  ];
 
 }
