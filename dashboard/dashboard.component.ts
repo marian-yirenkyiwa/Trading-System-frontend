@@ -405,12 +405,12 @@ export class AppDashboardComponent {
   }
 
   ngOnInit(): void {
-    this.getOrders()
+    // this.getOrders()
   }
 
-  getOrders(){
-    this.orderService.getAllOrders().subscribe(res => {
-       console.log(res);
-    })
-  }
+  // getOrders(){
+  //   this.orderService.getAllOrders().subscribe(res => {
+  //      console.log(res);
+  //   })
+  //}
 }
