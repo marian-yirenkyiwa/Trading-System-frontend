@@ -25,11 +25,18 @@ import { BrandingComponent } from './layouts/full/sidebar/branding.component';
 import { AppNavItemComponent } from './layouts/full/sidebar/nav-item/nav-item.component';
 import { CommonModule } from '@angular/common';
 
+//Landing Page
+import { HomepageComponent } from './landingpage/homepage/homepage.component';
+
+//Portfolio
+// import {PortfolioComponent} from "./pages/portfolio/portfolio.component";
+
 @NgModule({
   declarations: [
     AppComponent,
     FullComponent,
     BlankComponent,
+    HomepageComponent,
     SidebarComponent,
     HeaderComponent,
     BrandingComponent,

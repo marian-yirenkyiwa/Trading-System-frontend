@@ -3,8 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { BlankComponent } from './layouts/blank/blank.component';
 import { FullComponent } from './layouts/full/full.component';
 import { CreateOrderComponent } from './pages/create-order/create-order.component';
+import { HomepageComponent } from './landingpage/homepage/homepage.component';
+import {PortfolioComponent} from "./pages/portfolio/portfolio.component";
+import {OrderHistoryComponent} from "./pages/order-history/order-history.component";
+import {AllPortfolioComponent} from "./pages/all-portfolio/all-portfolio.component";
 
 const routes: Routes = [
+  {
+    path: '',
+    component: HomepageComponent
+  },
   {
     path: '',
     component: FullComponent,
@@ -22,15 +30,25 @@ const routes: Routes = [
       {
         path: 'create-order',
         component: CreateOrderComponent
-        // loadChildren: () =>
-        //   import('./pages/create-order/create-order.component').then((m) => m.CreateOrderComponent.call),
+      },
+      {
+        path: 'history',
+        component: OrderHistoryComponent
+      },
+      {
+        path: 'portfolio',
+        component: PortfolioComponent
+      },
+      {
+        path: 'portfolios',
+        component: AllPortfolioComponent
       },
       {
         path: 'ui-components',
         loadChildren: () =>
           import('./pages/ui-components/ui-components.module').then(
             (m) => m.UicomponentsModule
-          ),
+          )
       },
       {
         path: 'extra',

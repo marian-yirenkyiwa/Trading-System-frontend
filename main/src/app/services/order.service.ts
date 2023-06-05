@@ -1,7 +1,8 @@
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { Ordermodel } from '../pages/create-order/ordermodel';
+import { OrderModel } from '../pages/create-order/order.model';
+import { OrderResponse } from "../pages/create-order/order.model";
 
 @Injectable({
   providedIn: 'root'
@@ -23,17 +24,17 @@ export class OrderService implements OnInit{
   //   return of(this.orders);
   // }
 
-  newOrder: Ordermodel[];
-  getNewOrder(newOrder: Ordermodel){
+  newOrder: OrderModel[];
+  getNewOrder(newOrder: OrderModel){
     //  return console.log("success")
-    const url = 'http://localhost/4200';
-    return this.http.post<any>(url, newOrder);
+    const url = 'localhost:5432/OrderServiceDB';
+    return this.http.post<OrderResponse>(url, newOrder);
     // return of(this.newOrder);
 
   }
 
 
   ngOnInit(): void {
-    
+
   }
 }

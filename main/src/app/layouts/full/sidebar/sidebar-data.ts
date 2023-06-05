@@ -2,7 +2,7 @@ import { NavItem } from './nav-item/nav-item';
 
 export const navItems: NavItem[] = [
   {
-    navCap: 'Home',
+    navCap: 'My Dashboard',
   },
   {
     displayName: 'Dashboard',
@@ -10,57 +10,70 @@ export const navItems: NavItem[] = [
     route: '/dashboard',
   },
   {
-    navCap: 'Ui Components',
+    navCap: 'Trade',
   },
   {
-    displayName: 'Badge',
-    iconName: 'rosette',
-    route: '/ui-components/badge',
+    displayName: 'New Order',
+    iconName: 'coin',
+    route: '/create-order',
   },
   {
-    displayName: 'Chips',
-    iconName: 'poker-chip',
-    route: '/ui-components/chips',
+    displayName: 'Order History',
+    iconName: 'history',
+    route: '/history',
   },
   {
-    displayName: 'Lists',
-    iconName: 'list',
-    route: '/ui-components/lists',
+    displayName: 'Cancel Order',
+    iconName: 'coin-off',
+    route: '/history',
+  },
+  // {
+  //   displayName: 'Menu',
+  //   iconName: 'layout-navbar-expand',
+  //   route: '/ui-components/menu',
+  // },
+  // {
+  //   displayName: 'Tooltips',
+  //   iconName: 'tooltip',
+  //   route: '/ui-components/tooltips',
+  // },
+  {
+    navCap: 'Portfolio',
   },
   {
-    displayName: 'Menu',
-    iconName: 'layout-navbar-expand',
-    route: '/ui-components/menu',
+    displayName: 'New Portfolio',
+    iconName: 'briefcase',
+    route: '/portfolio',
   },
   {
-    displayName: 'Tooltips',
-    iconName: 'tooltip',
-    route: '/ui-components/tooltips',
+    displayName: 'View all Portfolio',
+    iconName: 'eye-check',
+    route: '/portfolios',
   },
   {
-    navCap: 'Auth',
+    displayName: 'Close Portfolio',
+    iconName: 'briefcase-off',
+    route: '/portfolios',
+  },
+  // {
+  //   navCap: 'Extra',
+  // },
+  // {
+  //   displayName: 'Icons',
+  //   iconName: 'mood-smile',
+  //   route: '/extra/icons',
+  // },
+  // {
+  //   displayName: 'Sample Page',
+  //   iconName: 'aperture',
+  //   route: '/extra/sample-page',
+  // },
+  {
+    navCap: 'Logout',
   },
   {
-    displayName: 'Login',
-    iconName: 'lock',
-    route: '/authentication/login',
-  },
-  {
-    displayName: 'Register',
-    iconName: 'user-plus',
-    route: '/authentication/register',
-  },
-  {
-    navCap: 'Extra',
-  },
-  {
-    displayName: 'Icons',
-    iconName: 'mood-smile',
-    route: '/extra/icons',
-  },
-  {
-    displayName: 'Sample Page',
-    iconName: 'aperture',
-    route: '/extra/sample-page',
-  },
+    displayName: 'Logout',
+    iconName: 'arrow-big-left',
+    route: '/'
+  }
 ];
